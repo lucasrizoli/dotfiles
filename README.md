@@ -15,3 +15,4 @@ Feel free to copy whatever you feel can be useful to you. Most everything in the
 * [Gianni Chiappetta](https://github.com/gf3/dotfiles/)
 * [Zach Holman](https://github.com/holman/dotfiles)
 * [Jan Moesen](https://github.com/janmoesen/tilde/)
+* [Ryan Tomayko](https://github.com/rtomayko/dotfiles/)
