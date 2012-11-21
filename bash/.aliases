@@ -1,0 +1,15 @@
+#!/bin/bash
+# Bash aliases
+
+# `cd` Directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+# `ls` Directory listing
+LS_COMMON="--human-readable --color=auto"
+alias ls="command ls $LS_COMMON"
+alias la="ls --almost-all"
+alias ll="ls -l"
+alias l.="ls -d .*"

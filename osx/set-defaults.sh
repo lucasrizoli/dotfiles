@@ -1,10 +1,18 @@
 #!/bin/bash
-
 # Set some OS X defaults
-#
-# Much taken from
+
+# Exit the script if this is not OS X (Darwin)
+[[ ! "$OSTYPE" =~ ^darwin ]] && echo "Aborted: you sure this is OS X?" && return
+
+# Much below taken from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 # https://github.com/holman/dotfiles/blob/master/osx/set-defaults.sh
+
+# Ask for the administrator password upfront
+sudo -v
+
+# Keep-alive: update existing `sudo` time stamp until this script has finished
+while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -34,8 +42,20 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
+# Increase window resize speed for Cocoa applications
+defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+# Don’t show Dashboard as a Space
+defaults write com.apple.dock dashboard-in-overlay -bool true
+
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Speed up Dock hide and show
+defaults write com.apple.dock autohide-time-modifier -float 0.12
 
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
@@ -66,3 +86,10 @@ defaults write com.apple.TextEdit RichText -int 0
 # Open and save files as UTF-8 in TextEdit
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
+
+# At the end, kill affected applications
+for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
+	"Mail" "Safari" "SystemUIServer" "iCal" "iTunes" "TextEdit"; do
+	killall "$app" > /dev/null 2>&1
+done
+echo "Some changes require a logout/restart to take effect."
