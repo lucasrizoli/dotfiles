@@ -40,11 +40,6 @@ else
 	RESET="\033[m"
 fi
 
-# Return colourful username and hostname if username is not my username
-function print_username_hostname() {
-	echo "${MAGENTA}$USER ${GREY}@ ${PURPLE}$HOSTNAME ${GREY}in "
-}
-
 # Return "*" when directory is in a git repo in which there are changes to be committed
 function print_git_dirty() {
 	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"

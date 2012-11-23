@@ -2,4 +2,4 @@
 # Sublime Text 2 aliases
 
 # OS X-specific
-[[ "$OSTYPE" =~ ^darwin ]] && alias subl='open -a "Sublime Text 2"'
+[[ $(uname -s) == "Darwin" ]] && alias subl='open -a "Sublime Text 2"'
