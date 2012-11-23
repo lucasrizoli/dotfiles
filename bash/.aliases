@@ -1,15 +1,18 @@
 #!/bin/bash
 # Bash aliases
 
-# `cd` Directory navigation
+# `cd` directory navigation
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-alias ~='cd ~'
+alias ~='cd $HOME'
 
-# `ls` Directory listing
-LS_COMMON="--human-readable --color=auto"
-alias ls="command ls $LS_COMMON"
-alias la="ls --almost-all"
-alias ll="ls -l"
-alias l.="ls -d .*"
+# `ls` directory listing
+LS_COMMON_OPTIONS="--human-readable --color=auto"
+alias l="ls ${LS_COMMON_OPTIONS}"
+alias la="ls --almost-all ${LS_COMMON_OPTIONS}"
+alias ll="ls -l ${LS_COMMON_OPTIONS}"
+alias lla="ls -l --almost-all ${LS_COMMON_OPTIONS}"
+
+# Exclude directory listing aliases from the command history
+export HISTIGNORE="l:l *:la:la *:ll:ll *:lla:lla *:$HISTIGNORE"

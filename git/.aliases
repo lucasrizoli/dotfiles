@@ -1,0 +1,14 @@
+#!/bin/bash
+# git aliases
+
+# Use hub (GitHub wrapper for git) if it's available
+# http://defunkt.github.com/hub/
+[[ -r $(which hub) ]] && alias git="$(which hub)"
+
+alias g="git"
+alias ga.="git add ."
+alias gs="git status -sb"
+alias gc="git commit"
+
+# Adapted from http://www.jukie.net/bart/blog/pimping-out-git-log
+alias glog="git log --graph --pretty=format:'%Cblue%h%Creset %cn %Cgreen(%cr)%Creset %s %C(yellow)%d%Creset'"
