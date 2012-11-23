@@ -2,4 +2,4 @@
 # Sublime Text 2 aliases
 
 # OS X-specific
-[[ $(uname -s) == "Darwin" ]] && alias subl='open -a "Sublime Text 2"'
+[[ $(uname -s) == "Darwin" ]] && alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
