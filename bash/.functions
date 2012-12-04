@@ -1,6 +1,14 @@
 #!/bin/bash
 # Bash functions
 
+# `rmrecur`
+# http://stackoverflow.com/questions/2016844/bash-recursively-remove-files
+# Find all files matching passed pattern and remove them from current and
+# all sub-directories. Useful for getting rid of junk like .DS_Store
+function rmrecur {
+	find . -name "$1" -print0 | xargs -0 rm -rf;
+}
+
 # `wtfis`
 # Taken from https://github.com/janmoesen/tilde/blob/master/.bash/commands#L729
 # Show what a given command really is. It is a combination of "type", "file"

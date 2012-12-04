@@ -14,6 +14,9 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Copy modified set of press-and-hold special characters for English
+[[ -f Keyboard-en.plist ]] && sudo cp -v Keyboard-en.plist /System/Library/Input\ Methods/PressAndHold.app/Contents/Resources/;
+
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
