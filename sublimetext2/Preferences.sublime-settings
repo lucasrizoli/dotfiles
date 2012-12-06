@@ -9,6 +9,9 @@
 	"font_size": 14.0,
 	"tab_size": 2,
 	"rulers": [72, 80, 100],
+	// Assume that Soda is installed
+	// https://github.com/buymeasoda/soda-theme/
+	"theme": "Soda Dark.sublime-theme",
 
 	// Editor behaviour
 	"tab_completion": false

@@ -9,10 +9,52 @@ alias ~='cd $HOME'
 
 # `ls` directory listing
 LS_COMMON_OPTIONS="--human-readable --color=auto"
-alias l="ls ${LS_COMMON_OPTIONS}"
-alias la="ls --almost-all ${LS_COMMON_OPTIONS}"
-alias ll="ls -l ${LS_COMMON_OPTIONS}"
-alias lla="ls -l --almost-all ${LS_COMMON_OPTIONS}"
+alias l="ls $LS_COMMON_OPTIONS"
+alias la="ls --almost-all $LS_COMMON_OPTIONS"
+alias ll="ls -l $LS_COMMON_OPTIONS"
+alias lla="ls -l --almost-all $LS_COMMON_OPTIONS"
 
 # Exclude directory listing aliases from the command history
 export HISTIGNORE="l:l *:la:la *:ll:ll *:lla:lla *:$HISTIGNORE"
+
+# git aliases
+
+# Use hub (GitHub wrapper for git) if it's available
+# http://defunkt.github.com/hub/
+[[ -r $(which hub) ]] && alias git="$(which hub)"
+
+alias g="git"
+alias ga.="git add ."
+alias gs="git status -sb"
+alias gc="git commit"
+
+# git log formatted to be easier to read, colourful
+# http://www.jukie.net/bart/blog/pimping-out-git-log
+git_log_format="'%C(blue)%h%C(reset) %cn %C(green)(%cr)%C(reset) %s %C(yellow)%d%C(reset)'"
+
+# git log time trimmed thanks to Jan Moesen's regex
+# https://github.com/janmoesen/tilde/blob/master/bin/git-tilde-log#L55
+git_log_regex="'
+	# Change \"3 weeks ago\" into \"3 weeks\".
+	s/^([^)]*) ago\)/\1)/;
+
+	# Abbreviate the time units.
+	s/^([^)]*) (s)econd(s?)\)/\1\2)/;
+	s/^([^)]*) (m)inute(s?)\)/\1\2)/;
+	s/^([^)]*) (h)our(s?)\)/\1\2)/;
+	s/^([^)]*) (d)ay(s?)\)/\1\2)/;
+	s/^([^)]*) (w)eek(s?)\)/\1\2)/;
+	s/^([^)]*) (mon)th(s?)\)/\1 \2)/;
+	s/^([^)]*) (y)ear[^)]*\)/\1\2)/;
+
+	# Use at least two digits before the time unit for nicer alignment
+	# (until there are commits older than nine years). Of course, because of
+	# \"mon\" for \"months\", alignment is off for old-ish commits.
+	s/\(([0-9])([^0-9 ])/ (\1\2/;
+'"
+alias glog="git log --graph --pretty=tformat:$git_log_format | perl -p -e $git_log_regex"
+
+# Sublime Text 2 aliases
+
+# OS X-specific
+[[ $(uname -s) == "Darwin" ]] && alias subl='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'

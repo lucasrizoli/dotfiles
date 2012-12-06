@@ -1,0 +1,16 @@
+#!/bin/bash
+# PATH
+
+dirs_to_path=""
+
+# NOTE You probably want to double-check and edit the list of paths here
+# as they're machine/software-specific
+for dir_to_path in "$HOME/.rvm/bin" "$(brew --prefix coreutils)/libexec/gnubin" \
+	"/usr/local/share/npm/bin"; do
+	[[ -d $dir_to_path ]] && dirs_to_path="$dir_to_path:$dirs_to_path"
+done
+
+export PATH="$dirs_to_path:$PATH"
+
+# manpages
+[[ -d "$(brew --prefix coreutils)/libexec/gnuman" ]] && export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
