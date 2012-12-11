@@ -38,7 +38,7 @@ function wtfis {
 			local path="$(type -p "$cmd")";
 			if [ -z "$path" ]; then
 				# Show the output from "type" without ANSI escapes.
-				echo "${type//$'\e'/\\033}";
+				printf "${type//$'\e'/\\033}\n";
 
 				case "$(command -v "$cmd")" in
 					'alias')
@@ -66,7 +66,7 @@ function wtfis {
 							while read -r line; do
 								buf="$buf${line/.  */.} ";
 								if [[ "$buf" =~ \.\ $ ]]; then
-									echo "$buf";
+									printf "$buf\n";
 									break;
 								fi;
 							done;
@@ -85,24 +85,24 @@ function wtfis {
 					while read -r line; do
 						buf="$buf${line/.  */.} ";
 						if [[ "$buf" =~ \.\ $ ]]; then
-							echo "$buf";
+							printf "$buf\n";
 							buf='';
 							break;
 						fi;
 					done;
-					[ -n "$buf" ] && echo "$buf";
+					[ -n "$buf" ] && printf "$buf\n";
 				}
 
 				# Get the absolute path for the binary.
 				local full_path="$(
 					cd "$(dirname "$path")" \
-						&& echo "$PWD/$(basename "$path")" \
-						|| echo "$path"
+						&& printf "$PWD/$(basename "$path")\n" \
+						|| printf "$path\n"
 				)";
 
 				# Then, combine the output of "type" and "file".
 				local fileinfo="$(file "$full_path")";
-				echo "${type%$path}${fileinfo}";
+				printf "${type%$path}${fileinfo}\n";
 
 				# Finally, show it using "ls" and highlight the path.
 				# If the path is a symlink, keep going until we find the
@@ -116,16 +116,16 @@ function wtfis {
 						# without readlink --canonicalize.
 						cd "$(dirname "$path")";
 						cd "$(dirname "$target_path")";
-						echo "$PWD/$(basename "$target_path")"
+						printf "$PWD/$(basename "$target_path")\n"
 					)");
 				done;
 				local ls="$(command ls -fdalF "${paths[@]}")";
-				echo "${ls/$path/$'\e[7m'${path}$'\e[27m'}";
+				printf "${ls/$path/$'\e[7m'${path}$'\e[27m'}\n";
 			fi;
 		fi;
 
 		# Separate the output for all but the last command with blank lines.
-		[ $i -lt $# ] && echo;
+		[ $i -lt $# ] && printf "\n";
 		let i++;
 	done;
 	return $ret;

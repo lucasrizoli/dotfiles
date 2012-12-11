@@ -2,7 +2,7 @@
 # Set some OS X defaults
 
 # Exit the script if this is not OS X (Darwin)
-[[ $(uname -s) != "Darwin" ]] && echo "Aborted: you sure this is OS X?" && return
+[[ $(uname -s) != "Darwin" ]] && printf "Aborted: you sure this is OS X?\n" && return
 
 # Much below taken from
 # https://github.com/mathiasbynens/dotfiles/blob/master/.osx
@@ -97,9 +97,13 @@ defaults write com.apple.TextEdit RichText -int 0
 defaults write com.apple.TextEdit PlainTextEncoding -int 4
 defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 
+# Security: require password immediately after sleep or screen saver begins
+defaults write com.apple.screensaver askForPassword -int 1
+defaults write com.apple.screensaver askForPasswordDelay -int 0
+
 # At the end, kill affected applications
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
 	"Mail" "Safari" "SystemUIServer" "iCal" "iTunes" "TextEdit"; do
 	killall "$app" > /dev/null 2>&1
 done
-echo "Some changes require a logout/restart to take effect."
+printf "Some changes require a logout/restart to take effect.\n"

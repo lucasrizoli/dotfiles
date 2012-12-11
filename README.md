@@ -13,8 +13,9 @@ I've made an effort to keep things seperable from applications and my username a
 > He who receives an idea from me, receives instruction himself without lessening mine; as he who lights his taper at mine, receives light without darkening me.
 
 * [GitHub does dotfiles](http://dotfiles.github.com/)
-* [Mathias Bynens](https://raw.github.com/mathiasbynens/dotfiles/)
 * [Gianni Chiappetta](https://github.com/gf3/dotfiles/)
-* [Zach Holman](https://github.com/holman/dotfiles/)
 * [Jan Moesen](https://github.com/janmoesen/tilde/)
+* [Mathias Bynens](https://raw.github.com/mathiasbynens/dotfiles/)
+* [Nicolas Gallagher](https://github.com/necolas/dotfiles)
 * [Ryan Tomayko](https://github.com/rtomayko/dotfiles/)
+* [Zach Holman](https://github.com/holman/dotfiles/)

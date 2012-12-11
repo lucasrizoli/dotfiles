@@ -42,7 +42,7 @@ fi
 
 # Return "*" when directory is in a git repo in which there are changes to be committed
 function print_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && printf "*\n"
 }
 
 # If directory is in git repo, return the name of the current branch (and whether there are changes to be committed)
@@ -52,7 +52,7 @@ function print_git_branch() {
 
 # Return colourful git branch and dirty (commits to be made) status
 function print_git_info() {
-	[[ -n $(git branch 2> /dev/null) ]] && echo "${GREY} git ${WHITE}$(print_git_branch)${ORANGE}$(print_git_dirty)"
+	[[ -n $(git branch 2> /dev/null) ]] && printf "${GREY} git ${WHITE}$(print_git_branch)${ORANGE}$(print_git_dirty)\n"
 }
 
 # Titles for terminal windows and tabs

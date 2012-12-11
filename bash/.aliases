@@ -21,7 +21,7 @@ export HISTIGNORE="l:l *:la:la *:ll:ll *:lla:lla *:$HISTIGNORE"
 
 # Use hub (GitHub wrapper for git) if it's available
 # http://defunkt.github.com/hub/
-[[ -r $(which hub) ]] && alias git="$(which hub)"
+[[ -r $(command -v hub) ]] && alias git="$(command -v hub)"
 
 alias g="git"
 alias ga.="git add ."
