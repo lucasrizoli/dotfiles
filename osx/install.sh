@@ -64,6 +64,9 @@ defaults write com.apple.dock autohide -bool true
 # Speed up Dock hide and show
 defaults write com.apple.dock autohide-time-modifier -float 0.12
 
+# Speed up the display of tooltips
+defaults write -g NSInitialToolTipDelay 900
+
 # Set Safari’s home page to `about:blank` for faster loading
 defaults write com.apple.Safari HomePage -string "about:blank"
 

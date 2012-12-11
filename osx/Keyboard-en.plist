@@ -182,6 +182,15 @@
 		<key>Strings</key>
 		<string>u û ü ù ú ū</string>
 	</dict>
+	<key>Roman-Accent-x</key>
+	<dict>
+		<key>Direction</key>
+		<string>left</string>
+		<key>Keycaps</key>
+		<string>x ×</string>
+		<key>Strings</key>
+		<string>x ×</string>
+	</dict>
 	<key>Roman-Accent-y</key>
 	<dict>
 		<key>Direction</key>
