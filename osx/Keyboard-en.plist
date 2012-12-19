@@ -146,6 +146,15 @@
 		<key>Strings</key>
 		<string>l ł</string>
 	</dict>
+	<key>Roman-Accent-m</key>
+	<dict>
+		<key>Direction</key>
+		<string>left</string>
+		<key>Keycaps</key>
+		<string>m −</string>
+		<key>Strings</key>
+		<string>m −</string>
+	</dict>
 	<key>Roman-Accent-n</key>
 	<dict>
 		<key>Direction</key>
