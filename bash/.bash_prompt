@@ -52,12 +52,12 @@ function print_git_branch() {
 
 # Return colourful git branch and dirty (commits to be made) status
 function print_git_info() {
-	[[ -n $(git branch 2> /dev/null) ]] && printf "${GREY} git ${WHITE}$(print_git_branch)${ORANGE}$(print_git_dirty)\n"
+	[[ -n $(git branch 2> /dev/null) ]] && printf "$GREY ($WHITE$(print_git_branch)$ORANGE$(print_git_dirty)$GREY)\n"
 }
 
 # Titles for terminal windows and tabs
 # http://scottlab.ucsc.edu/xtal/sample.bashrc
-terminal_title="\[\e]2;\h::\]\w\[\a\]"		# hostname::current path
-terminal_tab_title="\[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]"	# (..pwd)/pwd
+TERMINAL_TITLE="\[\e]2;\h::\]\w\[\a\]"		# hostname::current path
+TERMINAL_TAB_TITLE="\[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]"	# (..pwd)/pwd
 
-export PS1="$terminal_title$terminal_tab_title\[$MAGENTA\]\u\[$GREY\]@\[$PURPLE\]\H\[$GREY\]::\[$GREEN\]\w\$(print_git_info)\[$GREY\]\n\$ \[$RESET\]"
+export PS1="$TERMINAL_TITLE$TERMINAL_TAB_TITLE\[$MAGENTA\]\u\[$GREY\]@\[$PURPLE\]\h\[$GREY\]:\[$GREEN\]\w\$(print_git_info)\[$GREY\]\n\$ \[$RESET\]"

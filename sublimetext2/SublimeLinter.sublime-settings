@@ -1,0 +1,24 @@
+{
+	"sublimelinter": true,
+	"jshint_options":
+	{
+			"browser": true,
+			"curly": true,
+			"devel": true,
+			"eqeqeq": true,
+			"evil": false,
+			"forin": true,
+			"latedef": true,
+			"newcap": true,
+			"noarg": true,
+			"plusplus": true,
+			"regexdash": false,
+			"regexp": true,
+			"smarttabs": true,
+			"strict": true,
+			"sub": false,
+			"trailing": true,
+			"undef": true,
+			"wsh": false
+	}
+}

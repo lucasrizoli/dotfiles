@@ -1,18 +1,20 @@
 {
-	// File settings
 	"default_line_ending": "unix",
-	"fallback_encoding": "UTF-8",
-
-	// Editor display settings
 	"dictionary": "Packages/Language - English/en_CA.dic",
 	"draw_white_space": "all",
+	"fallback_encoding": "UTF-8",
 	"font_size": 14.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		72,
+		80,
+		100
+	],
+	"tab_completion": false,
 	"tab_size": 2,
-	"rulers": [72, 80, 100],
-	// Assume that Soda is installed
-	// https://github.com/buymeasoda/soda-theme/
-	"theme": "Soda Dark.sublime-theme",
-
-	// Editor behaviour
-	"tab_completion": false
+	"theme": "Soda Dark.sublime-theme"
 }
