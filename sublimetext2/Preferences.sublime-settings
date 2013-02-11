@@ -3,7 +3,8 @@
 	"dictionary": "Packages/Language - English/en_CA.dic",
 	"draw_white_space": "all",
 	"fallback_encoding": "UTF-8",
-	"font_size": 14.0,
+	"font_size": 16.0,
+	"font_face": "Inconsolata",
 	"ignored_packages":
 	[
 		"Vintage"

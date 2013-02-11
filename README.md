@@ -19,3 +19,6 @@ I've made an effort to keep things seperable from applications and my username a
 * [Nicolas Gallagher](https://github.com/necolas/dotfiles)
 * [Ryan Tomayko](https://github.com/rtomayko/dotfiles/)
 * [Zach Holman](https://github.com/holman/dotfiles/)
+
+* [Inconsolata](http://www.levien.com/type/myfonts/inconsolata.html) was made by Raph Levien & released under the [SIL OFL](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL&_sc=1)
+* Thayer colour theme for iTerm2 comes from Bastien Dejean's [iTerm 2 Color Themes](https://github.com/baskerville/iTerm-2-Color-Themes)
