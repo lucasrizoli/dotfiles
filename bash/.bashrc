@@ -9,6 +9,7 @@
 for file in .{path,aliases,functions,bash_prompt}; do
 	[[ -r "$file" ]] && source "$file"
 done
+unset file
 
 # Enable, when available
 # * nocaseglob: case-insensitive globbing (used in pathname expansion)
@@ -17,6 +18,7 @@ done
 for option in "nocaseglob" "cdspell" "no_empty_cmd_completion"; do
 	shopt -s "$option" 2> /dev/null
 done
+unset option
 
 # Prefer Canadian English and use UTF-8
 export LC_ALL="en_CA.UTF-8"

@@ -1,0 +1,5 @@
+#!/bin/bash
+# RVM config
+
+# added compiler flags http://alisnic.net/blog/making-your-ruby-fly/
+rvm_configure_env=(CFLAGS="-march=native -O2")

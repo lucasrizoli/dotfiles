@@ -214,9 +214,9 @@
 		<key>Direction</key>
 		<string>right</string>
 		<key>Keycaps</key>
-		<string>s ß ś š ↓</string>
+		<string>s ß ś š ↓ ²</string>
 		<key>Strings</key>
-		<string>s ß ś š ↓</string>
+		<string>s ß ś š ↓ ²</string>
 	</dict>
 	<key>Roman-Accent-t</key>
 	<dict>
