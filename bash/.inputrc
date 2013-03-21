@@ -31,4 +31,4 @@ set mark-symlinked-directories on
 # Would be nice if it worked in bash 3.2
 # Be more intelligent when autocompleting by also looking at the text after
 # the cursor.
-# set skip-completed-text on
+set skip-completed-text on
