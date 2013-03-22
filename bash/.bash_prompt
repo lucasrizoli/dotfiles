@@ -41,8 +41,9 @@ else
 fi
 
 # Return "*" when directory is in a git repo in which there are changes to be committed
+# From http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
 function print_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && printf "*\n"
+	[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && printf "*\n"
 }
 
 # If directory is in git repo, return the name of the current branch (and whether there are changes to be committed)
