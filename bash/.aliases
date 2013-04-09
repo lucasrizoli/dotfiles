@@ -14,8 +14,9 @@ alias la="ls --almost-all $LS_COMMON_OPTIONS"
 alias ll="ls -l $LS_COMMON_OPTIONS"
 alias lla="ls -l --almost-all $LS_COMMON_OPTIONS"
 
-# Exclude directory listing aliases from the command history
-export HISTIGNORE="l:l *:la:la *:ll:ll *:lla:lla *:$HISTIGNORE"
+# ROT13
+# http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
 
 # git aliases
 if [[ -x $(type -P git) ]]; then
