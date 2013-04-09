@@ -27,7 +27,7 @@ export LANGUAGE="en"
 
 # Exclude certain commands from the history
 # Note: some aliases may also be ignored; see .aliases
-export HISTIGNORE="pwd:exit:date:* --help:clear:man *:ls:ls *:$HISTIGNORE"
+export HISTIGNORE="pwd:exit:date:* --help:clear:man *:$HISTIGNORE"
 
 # Exclude duplicate commands from history
 export HISTCONTROL=ignoredups
