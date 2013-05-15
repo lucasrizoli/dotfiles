@@ -4,9 +4,9 @@
 # from https://gist.github.com/1566697
 
 media_files=$(git diff --cached --name-only --diff-filter=ACR | \
-	egrep -i '\.(webm|mp4|ogg|mp3|ogv|m4v|avi|vp8|mov|oga|mp1|mp2|mpeg|3gp|wav)$')
+  egrep -i '\.(webm|mp4|ogg|mp3|ogv|m4v|avi|vp8|mov|oga|mp1|mp2|mpeg|3gp|wav)$')
 
 if [[ "$media_files" ]]; then
-	echo 'Commit failed. Are you trying to check in media files into the repo?'
-	exit 1
+  echo 'Commit failed. Are you trying to check in media files into the repo?'
+  exit 1
 fi

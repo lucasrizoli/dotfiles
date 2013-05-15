@@ -13,9 +13,9 @@ sudo -v
 
 # Keep-alive: update existing `sudo` time stamp until this script has finished
 while true; do
-	sudo -n true
-	sleep 60
-	kill -0 "$$" || exit
+  sudo -n true
+  sleep 60
+  kill -0 "$$" || exit
 done 2>/dev/null &
 
 # Copy modified set of press-and-hold special characters for English
@@ -103,7 +103,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # At the end, kill affected applications
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-	"Mail" "Safari" "SystemUIServer" "iCal" "iTunes" "TextEdit"; do
-	killall "$app" > /dev/null 2>&1
+  "Mail" "Safari" "SystemUIServer" "iCal" "iTunes" "TextEdit"; do
+  killall "$app" > /dev/null 2>&1
 done
 printf "Some changes require a logout/restart to take effect.\n"

@@ -4,61 +4,61 @@
 # Set colors
 # Check if the terminal is xterm or GNOME
 if [[ $COLORTERM = gnome-* && $TERM = xterm ]] && infocmp gnome-256color > /dev/null 2>&1; then
-	export TERM=gnome-256color
+  export TERM=gnome-256color
 elif infocmp xterm-256color > /dev/null 2>&1; then
-	export TERM=xterm-256color
+  export TERM=xterm-256color
 fi
 
-if tput setaf 1 &> /dev/null; then	# if the term has tput colours…
-	# return to base styling (not bold, not italic, not underlined)
-	tput sgr0
-	# store tput colours & styles as human-friendly variables
-	if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
-		MAGENTA=$(tput setaf 9)
-		ORANGE=$(tput setaf 172)
-		GREEN=$(tput setaf 190)
-		PURPLE=$(tput setaf 141)
-		GREY=$(tput setaf 238)
-		WHITE=$(tput setaf 255)
-	else
-		MAGENTA=$(tput setaf 1)
-		ORANGE=$(tput setaf 3)
-		GREEN=$(tput setaf 2)
-		PURPLE=$(tput setaf 5)
-		GREY=$(tput setaf 6)
-		WHITE=$(tput setaf 7)
-	fi
-	RESET=$(tput sgr0)
+if tput setaf 1 &> /dev/null; then  # if the term has tput colours…
+  # return to base styling (not bold, not italic, not underlined)
+  tput sgr0
+  # store tput colours & styles as human-friendly variables
+  if [[ $(tput colors) -ge 256 ]] 2>/dev/null; then
+    MAGENTA=$(tput setaf 9)
+    ORANGE=$(tput setaf 172)
+    GREEN=$(tput setaf 190)
+    PURPLE=$(tput setaf 141)
+    GREY=$(tput setaf 238)
+    WHITE=$(tput setaf 255)
+  else
+    MAGENTA=$(tput setaf 1)
+    ORANGE=$(tput setaf 3)
+    GREEN=$(tput setaf 2)
+    PURPLE=$(tput setaf 5)
+    GREY=$(tput setaf 6)
+    WHITE=$(tput setaf 7)
+  fi
+  RESET=$(tput sgr0)
 else
-	# http://linuxtidbits.wordpress.com/2008/08/13/output-color-on-bash-scripts-advanced/
-	MAGENTA="\033[1;31m"
-	ORANGE="\033[1;33m"
-	GREEN="\033[1;32m"
-	PURPLE="\033[1;35m"
-	GREY="\033[1;30m"
-	WHITE="\033[1;37m"
-	RESET="\033[m"
+  # http://linuxtidbits.wordpress.com/2008/08/13/output-color-on-bash-scripts-advanced/
+  MAGENTA="\033[1;31m"
+  ORANGE="\033[1;33m"
+  GREEN="\033[1;32m"
+  PURPLE="\033[1;35m"
+  GREY="\033[1;30m"
+  WHITE="\033[1;37m"
+  RESET="\033[m"
 fi
 
 # Return "*" when directory is in a git repo in which there are changes to be committed
 # From http://stackoverflow.com/questions/2657935/checking-for-a-dirty-index-or-untracked-files-with-git
 function print_git_dirty() {
-	[[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && printf "*\n"
+  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && printf "*\n"
 }
 
 # If directory is in git repo, return the name of the current branch (and whether there are changes to be committed)
 function print_git_branch() {
-	git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/\1/"
 }
 
 # Return colourful git branch and dirty (commits to be made) status
 function print_git_info() {
-	[[ -n $(git branch 2> /dev/null) ]] && printf "$GREY ($WHITE$(print_git_branch)$ORANGE$(print_git_dirty)$GREY)\n"
+  [[ -n $(git branch 2> /dev/null) ]] && printf "$GREY ($WHITE$(print_git_branch)$ORANGE$(print_git_dirty)$GREY)\n"
 }
 
 # Titles for terminal windows and tabs
 # http://scottlab.ucsc.edu/xtal/sample.bashrc
-TERMINAL_TITLE="\[\e]2;\h::\]\w\[\a\]"		# hostname::current path
-TERMINAL_TAB_TITLE="\[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]"	# (..pwd)/pwd
+TERMINAL_TITLE="\[\e]2;\h::\]\w\[\a\]"    # hostname::current path
+TERMINAL_TAB_TITLE="\[\e]1;\]$(basename $(dirname $PWD))/\W\[\a\]"  # (..pwd)/pwd
 
 export PS1="$TERMINAL_TITLE$TERMINAL_TAB_TITLE\[$MAGENTA\]\u\[$GREY\]@\[$PURPLE\]\h\[$GREY\]:\[$GREEN\]\w\$(print_git_info)\[$GREY\]\n\$ \[$RESET\]"

@@ -7,7 +7,7 @@
 # * .functions adds functions
 # * .bash_prompt makes the prompt fancy
 for file in .{path,aliases,functions,bash_prompt}; do
-	[[ -r "$file" ]] && source "$file"
+  [[ -r "$file" ]] && source "$file"
 done
 unset file
 
@@ -16,7 +16,7 @@ unset file
 # * cdspell: autocorrect typos in path names when using `cd`
 # * no_empty_cmd_completion: disable autocomplete on empty lines
 for option in "nocaseglob" "cdspell" "no_empty_cmd_completion"; do
-	shopt -s "$option" 2> /dev/null
+  shopt -s "$option" 2> /dev/null
 done
 unset option
 
