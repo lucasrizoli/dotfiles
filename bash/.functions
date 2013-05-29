@@ -1,6 +1,12 @@
 #!/bin/bash
 # Bash functions
 
+# `randir`
+# spit out a pseudorandom directory in the pwd
+function randir {
+  ls -d */ 2> /dev/null | sed -n "$((RANDOM%$(ls | wc -l)+1))p";
+}
+
 # `rmrecur`
 # http://stackoverflow.com/questions/2016844/bash-recursively-remove-files
 # Find all files matching passed pattern and remove them from current and
