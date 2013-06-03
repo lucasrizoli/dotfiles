@@ -1,8 +1,18 @@
 #!/bin/bash
 # Bash functions
 
+# `server`
+# Start simple HTTP server from pwd at a specified port
+# Presumes OS X with Python
+# Thanks to Paul Irish: http://youtu.be/f7AU2Ozu8eo?t=3m12s
+function server {
+  local port="${1:-8000}";
+  open "http://localhost:$port/";
+  python -m SimpleHTTPServer "$port";
+}
+
 # `randir`
-# spit out a pseudorandom directory in the pwd
+# Return pseudorandom directory in the pwd
 function randir {
   ls -d */ 2> /dev/null | sed -n "$((RANDOM%$(ls | wc -l)+1))p";
 }
