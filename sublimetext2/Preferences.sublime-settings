@@ -5,17 +5,19 @@
   "fallback_encoding": "UTF-8",
   "font_face": "Inconsolata",
   "font_size": 16.0,
-  "ignored_packages": [
-    "Vintage"
+  "ignored_packages":
+  [
+    "Vintage",
+    "Theme - Soda"
   ],
-  "rulers": [
+  "rulers":
+  [
     72,
     80,
     100
   ],
   "tab_completion": false,
   "tab_size": 2,
-  "theme": "Soda Dark.sublime-theme",
   "translate_tabs_to_spaces": true,
   "use_tab_stops": true
 }

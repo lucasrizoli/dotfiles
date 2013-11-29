@@ -56,6 +56,10 @@ if [[ -x $(type -P git) ]]; then
   alias glog="git log --graph --pretty=tformat:$GIT_LOG_FORMAT | perl -p -e $GIT_LOG_REGEX"
 fi
 
+# Common typos
+alias pythong="python"
+alias pythong3="python3"
+
 # Sublime Text 2 aliases
 # OS X-specific
 if [[ $(uname -s) == "Darwin" ]]; then
