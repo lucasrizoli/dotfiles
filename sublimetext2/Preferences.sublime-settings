@@ -1,6 +1,6 @@
 {
 	"default_line_ending": "unix",
-	"dictionary": "Packages/Language - English/en_CA.dic",
+	"dictionary": "Packages/Language - English/en_US.dic",
 	"draw_white_space": "all",
 	"fallback_encoding": "UTF-8",
 	"font_face": "Inconsolata",
