@@ -16,9 +16,9 @@
     <key>Direction</key>
     <string>left</string>
     <key>Keycaps</key>
-    <string>C Ç Ć Č ¢</string>
+    <string>C Ç Ć Č ¢ ℃</string>
     <key>Strings</key>
-    <string>C Ç Ć Č ¢</string>
+    <string>C Ç Ć Č ¢ ℃</string>
   </dict>
   <key>Roman-Accent-E</key>
   <dict>
