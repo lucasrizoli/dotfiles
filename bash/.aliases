@@ -63,7 +63,7 @@ alias pythong3="python3"
 # Sublime Text 2 aliases
 # OS X-specific
 if [[ $(uname -s) == "Darwin" ]]; then
-  PATH_TO_SUBL='/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl'
+  PATH_TO_SUBL='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
   alias subl=$PATH_TO_SUBL
   export EDITOR="$PATH_TO_SUBL -w"
 fi
