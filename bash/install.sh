@@ -11,7 +11,7 @@ files_to_ignore=(install.sh);
 backup_suffix=".backup-$(date +'%Y%m%d-%H%M%S')";
 source_directory="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"; # http://stackoverflow.com/a/246128/493944
 
-if [[ $is_dry_run ]]; then
+if [ "$is_dry_run" = "true" ]; then
   dry_run=echo;
   printf "Dry run: no changes will be made.\n";
 fi

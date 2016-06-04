@@ -8,13 +8,14 @@ alias ....='cd ../../..'
 alias ~='cd $HOME'
 
 # `ls` directory listing
-LS_COMMON_OPTIONS="--human-readable --color=auto"
+LS_COMMON_OPTIONS="-G -h"
 alias l="ls $LS_COMMON_OPTIONS"
-alias la="ls --almost-all $LS_COMMON_OPTIONS"
+alias la="ls -A $LS_COMMON_OPTIONS"
 alias ll="ls -l $LS_COMMON_OPTIONS"
-alias lla="ls -l --almost-all $LS_COMMON_OPTIONS"
+alias lla="ls -lA $LS_COMMON_OPTIONS"
 
 # ROT13
+# e.g. echo 'string' | rot13
 # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
 alias rot13="tr a-zA-Z n-za-mN-ZA-M"
 
