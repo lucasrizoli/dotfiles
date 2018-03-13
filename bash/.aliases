@@ -8,7 +8,7 @@ alias ....='cd ../../..'
 alias ~='cd $HOME'
 
 # `ls` directory listing
-LS_COMMON_OPTIONS="-G -h"
+LS_COMMON_OPTIONS="-G -h --color=auto"
 alias l="ls $LS_COMMON_OPTIONS"
 alias la="ls -A $LS_COMMON_OPTIONS"
 alias ll="ls -l $LS_COMMON_OPTIONS"
