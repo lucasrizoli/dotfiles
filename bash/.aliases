@@ -61,10 +61,20 @@ fi
 alias pythong="python"
 alias pythong3="python3"
 
-# Sublime Text 2 aliases
+# Sublime Text aliases
 # OS X-specific
 if [[ $(uname -s) == "Darwin" ]]; then
   PATH_TO_SUBL='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
   alias subl=$PATH_TO_SUBL
   export EDITOR="$PATH_TO_SUBL -w"
 fi
+
+# Start an HTTP server from a directory, optionally specifying the port
+# From https://github.com/paulirish/dotfiles/blob/master/.functions
+function server() {
+  local port="${1:-8000}"
+  open "http://localhost:${port}/" &
+  # statik is good because it won't expose hidden folders/files by default.
+  # npm install -g statik
+  statik --port "$port" .
+}
