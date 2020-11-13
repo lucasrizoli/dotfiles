@@ -3,5 +3,5 @@
 
 [[ $(uname -s) == "Darwin" ]] && alias subl='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 
-SUBL_OSX_USER_DIRECTORY="$HOME/Library/Application\ Support/Sublime\ Text/Packages/User"
-printf "$SUBL_OSX_USER_DIRECTORY\n"
+echo Creating symlink
+ln -sf $(pwd)/Preferences.sublime-settings $HOME'/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings'
