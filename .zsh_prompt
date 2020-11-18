@@ -1,0 +1,16 @@
+PS1="%F{169}%n%f%F{8}@%f%F{13}%m%f%F{8}:%f%F{190}%~%f"
+# git stuff
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+PS1+=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats ' %F{8}(%F{7}%b%f%F{214}%u%c%f%F{8})%f'
+zstyle ':vcs_info:*' enable git
+#https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+PS1+=$'\n'"%F{8}%#%f "
+
+export PS1
