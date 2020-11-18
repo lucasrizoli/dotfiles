@@ -1,12 +1,12 @@
 # Lucas's dotfiles
 
-Preferences and configurations for *nix, OS X, and certain software. A work in progress.
+Preferences and configurations for shell (bash, zsh), OS X, and certain software. May be brittle. Forever a work in progress.
 
 ## Copying
 
 Feel free to copy whatever you feel can be useful to you. Most everything in these files has been cut-and-paste from others' dotfiles anyway.
 
-I've made an effort to keep things seperable from applications and my username and etc. but do not guarantee that this is so.
+I've made an effort to keep things separable from applications and my username and etc. but do not guarantee that this is so.
 
 ## Thanks
 
@@ -19,6 +19,8 @@ I've made an effort to keep things seperable from applications and my username a
 * [Nicolas Gallagher](https://github.com/necolas/dotfiles)
 * [Ryan Tomayko](https://github.com/rtomayko/dotfiles/)
 * [Zach Holman](https://github.com/holman/dotfiles/)
+* [Paul Irish](https://github.com/paulirish/dotfiles/)
+* [Armin Briegel](https://scriptingosx.com/2019/06/moving-to-zsh/)
 
 * [Inconsolata](http://www.levien.com/type/myfonts/inconsolata.html) was made by Raph Levien & released under the [SIL OFL](http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&item_id=OFL&_sc=1)
 * Thayer colour theme for iTerm2 comes from Bastien Dejean's [iTerm 2 Color Themes](https://github.com/baskerville/iTerm-2-Color-Themes)
