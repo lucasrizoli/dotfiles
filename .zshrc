@@ -36,6 +36,6 @@ setopt CORRECT_ALL
 # * .functions adds functions
 # * .bash_prompt makes the prompt fancy
 for file in .{path,aliases,functions,zsh_prompt}; do
-  [[ -r "$file" ]] && source "$file"
+	[[ -r "$file" ]] && source "$file"
 done
 unset file

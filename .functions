@@ -1,9 +1,29 @@
 # Functions
 
+# Create a new directory and enter it
+# https://github.com/alrra/dotfiles/blob/main/src/shell/bash_functions
+function mkd() {
+	if [ -n "$*" ]; then
+		mkdir -p "$@"
+		cd "$@" \
+			|| exit 1
+	fi
+}
+
 # `rmrecur`
 # http://stackoverflow.com/questions/2016844/bash-recursively-remove-files
 # Find all files matching passed pattern and remove them from current and
 # all sub-directories. Useful for getting rid of junk like .DS_Store
 function rmrecur {
-  find . -name "$1" -print0 | xargs -0 rm -rf;
+	find . -name "$1" -print0 | xargs -0 rm -rf;
+}
+
+# `srvr`
+# https://github.com/mathiasbynens/dotfiles/blob/main/.functions
+# Start HTTP server from pwd using Python2 (pretty standard)
+function srvr() {
+	local port="${1:-8000}"
+	sleep 1 && open "http://localhost:${port}/" &
+	# Set the default Content-Type to `text/plain` instead of `application/octet-stream`
+	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nSimpleHTTPServer.test();' "$port";
 }
