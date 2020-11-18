@@ -1,0 +1,57 @@
+# Aliases
+
+# `ls` directory listing
+LS_COMMON_OPTIONS="-G -h --color=auto"
+alias l="ls $LS_COMMON_OPTIONS"
+alias la="ls -A $LS_COMMON_OPTIONS"
+alias ll="ls -l $LS_COMMON_OPTIONS"
+alias lla="ls -lA $LS_COMMON_OPTIONS"
+
+# ROT13
+# e.g. echo 'string' | rot13
+# http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
+alias rot13="tr a-zA-Z n-za-mN-ZA-M"
+
+# git aliases
+alias g="git"
+alias gaa="git add --all"
+alias gs="git status -sb"
+alias gc="git commit"
+
+# git log formatted to be easier to read, colourful
+# http://www.jukie.net/bart/blog/pimping-out-git-log
+GIT_LOG_FORMAT="'%C(blue)%h%C(reset) %cn %C(green)(%cr)%C(reset) %s %C(yellow)%d%C(reset)'"
+
+# git log time trimmed thanks to Jan Moesen's regex
+# https://github.com/janmoesen/tilde/blob/master/bin/git-tilde-log#L55
+GIT_LOG_REGEX="'
+	# Change \"3 weeks ago\" into \"3 weeks\".
+	s/^([^)]*) ago\)/\1)/;
+
+	# Abbreviate the time units.
+	s/^([^)]*) (s)econd(s?)\)/\1\2)/;
+	s/^([^)]*) (m)inute(s?)\)/\1\2)/;
+	s/^([^)]*) (h)our(s?)\)/\1\2)/;
+	s/^([^)]*) (d)ay(s?)\)/\1\2)/;
+	s/^([^)]*) (w)eek(s?)\)/\1\2)/;
+	s/^([^)]*) (mon)th(s?)\)/\1 \2)/;
+	s/^([^)]*) (y)ear[^)]*\)/\1\2)/;
+
+	# Use at least two digits before the time unit for nicer alignment
+	# (until there are commits older than nine years). Of course, because of
+	# \"mon\" for \"months\", alignment is off for old-ish commits.
+	s/\(([0-9])([^0-9 ])/ (\1\2/;
+'"
+alias glog="git log --graph --pretty=tformat:$GIT_LOG_FORMAT | perl -p -e $GIT_LOG_REGEX"
+
+# Sublime Text aliases
+# OS X-specific
+if [[ $(uname -s) == "Darwin" ]]; then
+	PATH_TO_SUBL='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+	alias subl=$PATH_TO_SUBL
+	export EDITOR="$PATH_TO_SUBL -w"
+fi
+
+# 11ty
+# https://www.11ty.dev/docs/usage/
+alias 11ty="npx @11ty/eleventy"

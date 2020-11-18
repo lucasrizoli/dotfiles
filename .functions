@@ -1,0 +1,9 @@
+# Functions
+
+# `rmrecur`
+# http://stackoverflow.com/questions/2016844/bash-recursively-remove-files
+# Find all files matching passed pattern and remove them from current and
+# all sub-directories. Useful for getting rid of junk like .DS_Store
+function rmrecur {
+  find . -name "$1" -print0 | xargs -0 rm -rf;
+}

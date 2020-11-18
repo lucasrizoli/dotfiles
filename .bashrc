@@ -20,6 +20,13 @@ for option in "nocaseglob" "cdspell" "no_empty_cmd_completion"; do
 done
 unset option
 
+# Let me drop cd when it's obvious
+# `cd` directory navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd $HOME'
+
 # Prefer Canadian English and use UTF-8
 export LC_ALL="en_CA.UTF-8"
 export LANG="en_CA"
@@ -40,8 +47,3 @@ export HISTFILESIZE=16384
 
 # Store date & time of commands in the history
 export HISTTIMEFORMAT="%Y-%m-%d %H:%M:%S$  "
-
-# Load RVM into a shell session *as a function*
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
