@@ -7,6 +7,9 @@ alias la="ls -A $LS_COMMON_OPTIONS"
 alias ll="ls -l $LS_COMMON_OPTIONS"
 alias lla="ls -lA $LS_COMMON_OPTIONS"
 
+alias ...='cd ../..'
+alias ....='cd ../../..'
+
 # ROT13
 # e.g. echo 'string' | rot13
 # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
@@ -50,7 +53,12 @@ if [[ $(uname -s) == "Darwin" ]]; then
 	PATH_TO_SUBL='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
 	alias subl=$PATH_TO_SUBL
 	export EDITOR="$PATH_TO_SUBL -w"
+
+	# Do a bunch of updates of Homebrew, npm, gems
+	alias upd8='brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 fi
+
+
 
 # 11ty
 # https://www.11ty.dev/docs/usage/

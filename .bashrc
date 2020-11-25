@@ -23,8 +23,6 @@ unset option
 # Let me drop cd when it's obvious
 # `cd` directory navigation
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
 alias ~='cd $HOME'
 
 # Prefer Canadian English and use UTF-8
