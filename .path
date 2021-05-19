@@ -2,16 +2,19 @@
 
 dirs_to_path=""
 
-# NOTE You probably want to double-check and edit the list of paths here
-# as they're machine/software-specific
-for dir_to_path in "$(brew --prefix coreutils)/libexec/gnubin" \
-  "/usr/local/share/npm/bin" "/usr/local/share/python" \
-  "/usr/local/sbin"; do
-  [[ -d $dir_to_path ]] && dirs_to_path="$dir_to_path:$dirs_to_path"
-done
+# OS X-specific
+if [[ $(uname -s) == "Darwin" ]]; then
+	# NOTE You probably want to double-check and edit the list of paths here
+	# as they're machine/software-specific
+	for dir_to_path in "$(brew --prefix coreutils)/libexec/gnubin" \
+	  "/usr/local/share/npm/bin" "/usr/local/share/python" \
+	  "/usr/local/sbin"; do
+	  [[ -d $dir_to_path ]] && dirs_to_path="$dir_to_path:$dirs_to_path"
+	done
 
-export PATH="$dirs_to_path:$PATH"
-unset dirs_to_path
+	export PATH="$dirs_to_path:$PATH"
+	unset dirs_to_path
 
-# manpages
-[[ -d "$(brew --prefix coreutils)/libexec/gnuman" ]] && export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+	# manpages
+	[[ -d "$(brew --prefix coreutils)/libexec/gnuman" ]] && export MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
+fi

@@ -6,7 +6,7 @@
 # * .aliases adds common aliases
 # * .functions adds functions
 # * .bash_prompt makes the prompt fancy
-for file in .{path,aliases,functions,bash_prompt}; do
+for file in ~/.{path,aliases,functions,bash_prompt}; do
   [[ -r "$file" ]] && source "$file"
 done
 unset file
