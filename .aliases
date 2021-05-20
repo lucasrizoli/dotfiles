@@ -20,6 +20,7 @@ alias g="git"
 alias gaa="git add --all"
 alias gs="git status -sb"
 alias gc="git commit"
+alias gcm="git commit -m"
 
 # git log formatted to be easier to read, colourful
 # http://www.jukie.net/bart/blog/pimping-out-git-log
@@ -55,10 +56,8 @@ if [[ $(uname -s) == "Darwin" ]]; then
 	export EDITOR="$PATH_TO_SUBL -w"
 
 	# Do a bunch of updates of Homebrew, npm, gems
-	alias upd8='brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+	alias upd8='brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; rustup update; sudo gem update --system; sudo gem update; sudo gem cleanup'
 fi
-
-
 
 # 11ty
 # https://www.11ty.dev/docs/usage/
