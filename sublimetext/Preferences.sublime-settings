@@ -6,6 +6,10 @@
 	"fallback_encoding": "UTF-8",
 	"font_face": "Inconsolata",
 	"font_size": 18.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"rulers":
 	[
 		72,

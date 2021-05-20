@@ -35,7 +35,7 @@ setopt CORRECT_ALL
 # * .aliases adds common aliases
 # * .functions adds functions
 # * .bash_prompt makes the prompt fancy
-for file in .{path,aliases,functions,zsh_prompt}; do
+for file in ~/.{path,aliases,functions,zsh_prompt}; do
 	[[ -r "$file" ]] && source "$file"
 done
 unset file
