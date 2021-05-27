@@ -54,11 +54,9 @@ if [[ $(uname -s) == "Darwin" ]]; then
 	alias subl=$PATH_TO_SUBL
 	export EDITOR="$PATH_TO_SUBL -w"
 
-	# Do a bunch of updates of Homebrew, npm, gems
-	alias upd8='brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
+	# Do a bunch of updates of Homebrew, npm. I don't care much about gems no more, and they needed my su pwd…
+	alias upd8='brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u; npm install npm -g; npm update -g'
 fi
-
-
 
 # 11ty
 # https://www.11ty.dev/docs/usage/
