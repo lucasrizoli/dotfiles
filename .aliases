@@ -20,6 +20,7 @@ alias g="git"
 alias gaa="git add --all"
 alias gs="git status -sb"
 alias gc="git commit"
+alias gcm="git commit -m"
 
 # git log formatted to be easier to read, colourful
 # http://www.jukie.net/bart/blog/pimping-out-git-log
